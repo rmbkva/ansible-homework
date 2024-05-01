@@ -1,0 +1,9 @@
+- hosts: 45.55.135.99
+  tasks: 
+  - name: install  Apache ,tree and git packages
+    apt:
+      name: 
+        - apache2
+        - tree 
+        - git 
+      state: latest 
