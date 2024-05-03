@@ -1,4 +1,12 @@
-- hosts: 45.55.135.99
+- hosts: ubuntu
+  become: true
+  tasks:
+  - name: Update and upgrade apt packages
+    apt:
+      upgrade: yes
+      update_cache: yes
+
+- hosts:  ubuntu
   tasks: 
   - name: install  Apache ,tree and git packages
     apt:
@@ -7,3 +15,14 @@
         - tree 
         - git 
       state: latest 
+      
+  - name: Start Apache service and enabled 
+    service: 
+      name: apache2
+      state: started 
+      enabled: yes 
+
+  - name: Copy files HW1 to remote host 
+    copy:
+      src: "./"
+      dest: /root/

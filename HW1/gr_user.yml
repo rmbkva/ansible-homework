@@ -1,0 +1,30 @@
+- hosts: ubuntu
+  become: yes
+  tasks:
+  - name: Create group kaizen
+    group:
+      name: kaizen
+      state: present
+  
+  - name: Create group devops
+    group:
+      name: devops
+      state: present
+
+  - name: Create group qa
+    group:
+      name: qa
+      state: present
+
+  - name: Create user Asel 
+    user:
+      name: Aselc
+      groups: kaizen,qa 
+      state: present 
+
+  - name: Create user tester 
+    user:
+      name: tester
+      groups: qa 
+      state: present 
+
