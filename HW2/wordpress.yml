@@ -1,0 +1,20 @@
+- name: Download Wordpress
+  get_url:
+    url: https://wordpress.org/latest.tar.gz
+    dest: /tmp/latest.tar.gz
+
+- name: Extract Wordpress 
+  unarchive:
+    src: /tmp/latest.tar.gz
+    dest: /var/www/html/
+    remote_src: yes 
+
+- name: Copy file with owner and permissions
+  file:
+    path:  /var/www/html
+    owner: apache
+    group: apache 
+    mode: '0755'
+
+
+

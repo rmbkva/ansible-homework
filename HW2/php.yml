@@ -1,0 +1,14 @@
+- name: Config manager and enabling php 7.4
+  yum_repository:
+    name: remi-php74
+    description: PHP 7.4
+    baseurl: https://rpms.remirepo.net/enterprise/7/php74/$basearch/
+    gpgcheck: yes 
+    gpgkey: yes 
+    enabled: yes 
+
+- name: Install php and mysql 
+  yum:
+    name:
+      - php
+      - php-mysql

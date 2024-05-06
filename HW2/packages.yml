@@ -1,0 +1,9 @@
+- name: Install packages 
+  yum:
+    name:
+      - httpd 
+      - wget
+      - unzip
+      - epel-release
+      - mysql
+      - https://rpms.remirepo.net/enterprise/remi-release-7.rpm
