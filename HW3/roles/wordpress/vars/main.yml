@@ -1,0 +1,5 @@
+url_aws: https://wordpress.org/latest.tar.gz
+src_aws: /tmp/wordpress.tar.gz
+dest_2: /tmp
+src: /tmp/wordpress/. 
+dest_3: /var/www/html 

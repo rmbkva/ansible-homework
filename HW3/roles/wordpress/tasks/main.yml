@@ -1,0 +1,29 @@
+- name: Download foo.conf
+  get_url:
+    url: "{{ url_aws }}"
+    dest: "{{ src_aws }}"
+
+- name: Extract file 
+  unarchive:
+    src: "{{ src_aws }}"
+    dest: "{{dest_2 }}"
+    remote_src: yes 
+
+- name: Copy file with owner and permissions
+  copy:
+    src:  "{{ src }}"
+    dest: "{{ dest_3 }}"
+    owner: apache
+    group: apache 
+    mode: '0755'
+    remote_src: yes 
+
+- name: Template a file to html
+  ansible.builtin.template:
+    src: wp-config-sample.php.j2
+    dest: /var/www/html/wp-config.php
+
+- name: Restart Apache 
+  service:
+    name: "{{ package }}" 
+    state: restarted
